@@ -5,7 +5,14 @@ pipeline {
       agent any
       steps {
         echo 'Build App'
-        sh 'ls -l'
+        sh 'pip install -r requirements.txt'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        echo 'Test Start'
+        sh 'pytest -v -s tests'
       }
     }
 
