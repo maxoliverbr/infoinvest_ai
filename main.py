@@ -74,8 +74,8 @@ def get_root():
 @app.get("/companies")
 def get_companies():
     # Create a connection to the database
-    conn = sqlite3.connect("C:\\Users\\Max\\PycharmProjects\\infoinvest_ai\\companies.sqlite")
-
+    # conn = sqlite3.connect("C:\\Users\\Max\\PycharmProjects\\infoinvest_ai\\companies.sqlite")
+    conn = sqlite3.connect("companies.sqlite")
     # Create a cursor object
     cur = conn.cursor()
 
@@ -95,7 +95,8 @@ def get_company_by_cnpj(cnpj: str):
     if len(cnpj) != 14:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST)
 
-    conn = sqlite3.connect("C:\\Users\\Max\\PycharmProjects\\infoinvest_ai\\companies.sqlite")
+    # conn = sqlite3.connect("C:\\Users\\Max\\PycharmProjects\\infoinvest_ai\\companies.sqlite")
+    conn = sqlite3.connect("companies.sqlite")
     cnpj_format = cnpj[:2] + "." + cnpj[2:5] + "." + cnpj[5:8] + "/" + cnpj[8:12] + "-" + cnpj[12:14]
 
     # Create a cursor object
