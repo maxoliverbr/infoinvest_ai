@@ -5,7 +5,8 @@ pipeline {
       agent any
       steps {
         echo 'Build App'
-        sh 'apt install pip'
+        sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
+        sh 'python get-pip.py'
         sh 'pip install -r requirements.txt'
       }
     }
