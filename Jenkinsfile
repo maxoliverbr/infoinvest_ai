@@ -5,7 +5,7 @@ pipeline {
       agent any
       steps {
         echo 'Build App'
-        sh 'apt intall pip'
+        sh 'apt install pip'
         sh 'pip install -r requirements.txt'
       }
     }
