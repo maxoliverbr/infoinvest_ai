@@ -13,7 +13,8 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Test Start'
-        sh 'pytest -v -s tests'
+        sh '''export PATH=$PATH:/var/jenkins_home/.local/bin
+pytest -v -s tests'''
       }
     }
 
