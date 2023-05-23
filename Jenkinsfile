@@ -5,6 +5,7 @@ pipeline {
       agent any
       steps {
         echo 'Build App'
+        sh 'sudo apt intall pip'
         sh 'pip install -r requirements.txt'
       }
     }
