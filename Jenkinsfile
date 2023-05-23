@@ -13,9 +13,11 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Test Start'
-        sh '''export PATH=$PATH:/var/jenkins_home/.local/bin
+        sh '''
+            export PATH=$PATH:/var/jenkins_home/.local/bin
 
-pytest -v -s tests'''
+            pytest -v -s tests
+        '''
       }
     }
 

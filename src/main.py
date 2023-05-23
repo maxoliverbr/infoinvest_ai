@@ -1,6 +1,7 @@
 import sqlite3
 import logging
 
+import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
@@ -118,5 +119,7 @@ def get_company_by_cnpj(cnpj: str):
 
     return jsonable_encoder(company)
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    uvicorn.run("main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80")
