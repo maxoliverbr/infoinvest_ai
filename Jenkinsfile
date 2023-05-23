@@ -5,8 +5,8 @@ pipeline {
       agent any
       steps {
         echo 'Build App'
-        sh 'curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
         sh 'pip install -r requirements.txt'
+        sh 'export PATH=$PATH:/var/jenkins_home/.local/bin'
       }
     }
 
